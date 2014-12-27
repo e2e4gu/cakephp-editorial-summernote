@@ -1,12 +1,12 @@
 {
-    "name": "mindforce/editorial_summernote",
+    "name": "mindforce/cakephp-editorial-summernote",
     "description": "Editorial Summernote editor plugin for CakePHP",
     "type": "cakephp-plugin",
     "require": {
         "php": ">=5.4",
         "cakephp/plugin-installer": "*",
         "cakephp/cakephp": "3.0.x-dev",
-        "mindforce/editorial": "*"
+        "mindforce/cakephp-editorial": "*"
     },
     "require-dev": {
         "phpunit/phpunit": "*"
