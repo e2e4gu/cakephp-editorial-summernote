@@ -27,7 +27,8 @@
         "phpunit/phpunit": "*"
     },
     "suggest": {
-        "mindforce/garderobe": "Allow to create user-friendly interfaces in fast and simple style"
+        "mindforce/cakephp-garderobe": "Allow to create user-friendly interfaces in fast and simple style",
+        "mindforce/cakephp-editorial-codemirror": "Well known editor for editing pure html code"
     },
     "autoload": {
         "psr-4": {
