@@ -28,14 +28,14 @@ class SummernoteHelper extends EditorialHelper {
 	];
 
 	public function initialize() {
-		$this->Html->css('Editorial/Summernote.summernote.css', ['block' => true]);
+		$this->css('Editorial/Summernote.summernote.css', ['block' => true]);
 		if(Plugin::loaded('Garderobe')){
-			$this->Html->css('Editorial/Summernote.summernote-bs3.css', ['block' => true]);
+			$this->css('Editorial/Summernote.summernote-bs3.css', ['block' => true]);
 		}
-		$this->Html->script('Editorial/Summernote.summernote.js', ['block' => true]);
+		$this->script('Editorial/Summernote.summernote.js', ['block' => true]);
 		// Setup lang here
 		if($lang = $this->config('options.lang')){
-			$this->Html->script('Editorial/Summernote.lang/summernote-'.$lang.'.js', ['block' => true]);
+			$this->script('Editorial/Summernote.lang/summernote-'.$lang.'.js', ['block' => true]);
 		}
 		// TODO: code mirror support in summernote little buggy
 		if(Plugin::loaded('Editorial/Codemirror')){
