@@ -28,6 +28,7 @@ class SummernoteHelper extends EditorialHelper {
 	];
 
 	public function initialize() {
+		$this->Html->script('jquery.js', ['block' => true]);
 		$this->css('Editorial/Summernote.summernote.css', ['block' => true]);
 		if(Plugin::loaded('Garderobe')){
 			$this->css('Editorial/Summernote.summernote-bs3.css', ['block' => true]);
