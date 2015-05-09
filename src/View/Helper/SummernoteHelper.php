@@ -45,7 +45,7 @@ class SummernoteHelper extends EditorialHelper {
 	}
 
 
-	public function connect($content = null){
+	public function connect($content = null, $block = true){
 		if(empty($content)) {
 			return;
 		}
