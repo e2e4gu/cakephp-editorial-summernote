@@ -50,7 +50,7 @@ class SummernoteHelper extends EditorialHelper {
 			return;
 		}
 		$searchRegex = '/(<textarea.*class\=\".*'
-			.Configure::read('Editorial.class').'\"[^>]*>.*<\/textarea>)/isU';
+			.Configure::read('Editorial.class').'.*\"[^>]*>.*<\/textarea>)/isU';
 		$js = '';
 		if(preg_match_all($searchRegex, $content, $matches)){
 			$js .= "$(document).ready(function() {\n";
