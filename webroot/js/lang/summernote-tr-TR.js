@@ -9,8 +9,8 @@
         height: 'Satır yüksekliği',
         name: 'Yazı Tipi',
         strikethrough: 'Üstü çizili',
-        subscript: 'Subscript',
-        superscript: 'Superscript',
+        subscript: 'Alt Simge',
+        superscript: 'Üst Simge',
         size: 'Yazı tipi boyutu'
       },
       image: {
@@ -30,6 +30,13 @@
         selectFromFiles: 'Dosya seçin',
         url: 'Resim bağlantısı',
         remove: 'Resimi Kaldır'
+      },
+      video: {
+        video: 'Video',
+        videoLink: 'Video bağlantısı',
+        insert: 'Video ekle',
+        url: 'Video bağlantısı?',
+        providers: '(YouTube, Vimeo, Vine, Instagram, DailyMotion veya Youku)'
       },
       link: {
         link: 'Bağlantı',

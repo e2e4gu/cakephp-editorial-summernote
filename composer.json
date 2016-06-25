@@ -17,11 +17,12 @@
 	},
 	"minimum-stability": "dev",
     "require": {
-        "php": ">=5.4",
+        "php": ">=5.5.9",
+        "cakephp/cakephp": "~3.2",
         "cakephp/plugin-installer": "*",
-        "cakephp/cakephp": "3.0.*",
+        "mindforce/component-installer": "~0.1",
         "mindforce/cakephp-editorial": "*",
-        "mindforce/cakephp-garderobe-jquery": "*"
+        "components/jquery": "~1.11"
     },
     "require-dev": {
         "phpunit/phpunit": "*"
