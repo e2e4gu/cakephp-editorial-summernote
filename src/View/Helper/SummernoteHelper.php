@@ -30,9 +30,6 @@ class SummernoteHelper extends EditorialHelper {
 	public function initialize(array $config = array()) {
 		//$this->Html->script('jquery.js', ['block' => true]);
 		$this->css('Editorial/Summernote.summernote.css', ['block' => true]);
-		if(Plugin::loaded('Garderobe')){
-			$this->css('Editorial/Summernote.summernote-bs3.css', ['block' => true]);
-		}
 		$this->script('Editorial/Summernote.summernote.js', ['block' => true]);
 		// Setup lang here
 		if($lang = $this->config('options.lang')){
@@ -42,6 +39,35 @@ class SummernoteHelper extends EditorialHelper {
 		if(Plugin::loaded('Editorial/Codemirror')){
 			$this->setCodemirrorAddon();
 		}
+
+		//Elfinder implementation
+		$this->css([
+				'Editorial/Summernote.jquery-ui/jquery-ui.min.css',
+				'Editorial/Summernote.jquery-ui/jquery-ui.structure.min.css',
+				'Editorial/Summernote.jquery-ui/jquery-ui.theme.min.css'
+			],
+			['block' => true]
+		);
+		$this->script('jquery-ui.min.js', ['block' => true, 'plugin' => false]);
+		$this->css(['Editorial/Summernote.elfinder.min.css', 'Editorial/Summernote.theme.css'], ['block' => true]);
+		$this->script([
+				'Editorial/Summernote.elfinder.min.js',
+				'Editorial/Summernote.plugin/elfinder/summernote-ext-elfinder.js',
+				'Editorial/Summernote.plugin/elfinder/elfinder-callback.js',
+			],
+			['block' => true]
+		);
+		$this->config('options.toolbar', '');
+		$this->config('options.toolbar', [
+			['style', ['style']],
+			['font', ['bold', 'underline', 'clear']],
+			['fontname', ['fontname']],
+			['color', ['color']],
+			['para', ['ul', 'ol', 'paragraph']],
+			['table', ['table']],
+			['insert', ['link', 'elfinder', 'video']],
+			['view', ['fullscreen', 'codeview', 'help']]
+		]);
 	}
 
 

@@ -22,7 +22,9 @@
         "cakephp/plugin-installer": "*",
         "mindforce/component-installer": "~0.1",
         "mindforce/cakephp-editorial": "*",
-        "components/jquery": "~1.11"
+        "components/jquery": "~1.11",
+        "components/jqueryui": "~1.11",
+        "studio-42/elfinder": "~2.1"
     },
     "require-dev": {
         "phpunit/phpunit": "*"
