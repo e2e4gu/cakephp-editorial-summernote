@@ -24,6 +24,16 @@ class SummernoteHelper extends EditorialHelper {
 				'lineNumbers' => true
 			],
 			'lang' => 'en-US',
+			'toolbar' => [
+				['style', ['undo', 'redo', 'style', 'clear']],
+				['font', ['fontname', 'bold', 'italic', 'underline', 'color']],
+				['fontname', []],
+				['color', []],
+				['para', ['ul', 'ol', 'paragraph']],
+				['table', ['table']],
+				['insert', ['link', 'picture', 'video']],
+				['view', ['fullscreen', 'codeview', 'help']]
+			]
 		]
 	];
 
@@ -57,17 +67,7 @@ class SummernoteHelper extends EditorialHelper {
 			],
 			['block' => true]
 		);
-		$this->config('options.toolbar', '');
-		$this->config('options.toolbar', [
-			['style', ['style']],
-			['font', ['bold', 'underline', 'clear']],
-			['fontname', ['fontname']],
-			['color', ['color']],
-			['para', ['ul', 'ol', 'paragraph']],
-			['table', ['table']],
-			['insert', ['link', 'elfinder', 'video']],
-			['view', ['fullscreen', 'codeview', 'help']]
-		]);
+		$this->replaceButton('elfinder', 'picture');
 	}
 
 
@@ -105,6 +105,19 @@ class SummernoteHelper extends EditorialHelper {
 			$this->Html->script('Editorial/Codemirror.mode/'.$codemirrorMode.'/'.$codemirrorMode.'.js', ['block' => true]);
 		}
 		$this->Html->script('Editorial/Codemirror.formatting.min.js', ['block' => true]);
+	}
+
+	protected function replaceButton($target, $source){
+		$toolbar = $this->config('options.toolbar');
+		foreach($toolbar as $i=>$bar){
+			foreach($bar[1] as $j=>$button){
+				if($button == $source){
+					$toolbar[$i][1][$j] = $target;
+				}
+			}
+		}
+		$this->config('options.toolbar', '');
+		$this->config('options.toolbar', $toolbar);
 	}
 
 }
