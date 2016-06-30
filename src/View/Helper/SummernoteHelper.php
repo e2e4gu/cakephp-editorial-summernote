@@ -26,9 +26,9 @@ class SummernoteHelper extends EditorialHelper {
 			'lang' => 'en-US',
 			'toolbar' => [
 				['style', ['undo', 'redo', 'style', 'clear']],
-				['font', ['fontname', 'bold', 'italic', 'underline', 'color']],
+				['font', ['fontname', 'fontsize', 'bold', 'italic', 'underline', 'color']],
 				['fontname', []],
-				['color', []],
+                                ['color', []],
 				['para', ['ul', 'ol', 'paragraph']],
 				['table', ['table']],
 				['insert', ['link', 'picture', 'video']],
