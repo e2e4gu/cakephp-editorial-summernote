@@ -32,7 +32,7 @@
           contents: '<i class="fa fa-image"/>',
           tooltip: 'Images browser',
           click: function () {
-              elfinderDialog();
+              elfinderDialog($(this).closest('.note-editor').parent().children('.editor'));
           }
         });
 

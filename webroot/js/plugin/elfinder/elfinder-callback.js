@@ -1,4 +1,4 @@
-function elfinderDialog() {
+function elfinderDialog(editor) {
   var fm = $('<div/>').dialogelfinder({
     //url : '/files/list.json', // change with the url of your connector
     url : '/summernote/files/list', // change with the url of your connector
@@ -7,7 +7,7 @@ function elfinderDialog() {
     height: 450,
     destroyOnClose : true,
     getFileCallback : function(files, fm) {
-      $('.editor').summernote('editor.insertImage', files.url);
+      editor.summernote('editor.insertImage', files.url);
     },
     commandsOptions : {
       getfile : {
