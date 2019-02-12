@@ -1,12 +1,6 @@
 <?php
-use Cake\Core\Plugin;
 use Cake\Core\Configure;
 use Cake\Routing\Router;
-
-Plugin::loadAll([
-    ['ignoreMissing' => true, 'bootstrap' => true],
-    'Editorial/Core' => ['routes' => true],
-]);
 
 Configure::write('Summernote.elFinder', [
     'debug' => false,
