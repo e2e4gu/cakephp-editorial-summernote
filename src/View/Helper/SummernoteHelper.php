@@ -58,9 +58,9 @@ class SummernoteHelper extends EditorialHelper {
 			],
 			['block' => true]
 		);
-		$this->script('jquery-ui.min.js', ['block' => true, 'plugin' => false]);
+		$this->script('Editorial/Summernote.jquery-ui.min.js', ['block' => true]);
 		$this->css(['Editorial/Summernote.elfinder.min.css', 'Editorial/Summernote.theme.css'], ['block' => true]);
-		$this->script([
+        $this->script([
 				'Editorial/Summernote.elfinder.min.js',
 				'Editorial/Summernote.plugin/elfinder/summernote-ext-elfinder.js',
 				'Editorial/Summernote.plugin/elfinder/elfinder-callback.js',
