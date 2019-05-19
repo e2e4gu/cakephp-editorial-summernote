@@ -14,10 +14,12 @@ class SummernoteHelper extends EditorialHelper {
  * @var array
  */
 	protected $_defaultConfig = [
+        'style' => '', //possible values 'bs4', 'lite'
 		'options' => [
 			'height' => null,
 			'width' => null,
-			'tabsize' => 4,
+            'tabsize' => 4,
+            'dialogsInBody' => true,
 			'codemirror' => [
 				'mode' => 'xml',
 				'theme' => 'eclipse',
@@ -28,7 +30,7 @@ class SummernoteHelper extends EditorialHelper {
 				['style', ['undo', 'redo', 'style', 'clear']],
 				['font', ['fontname', 'fontsize', 'bold', 'italic', 'underline', 'color']],
 				['fontname', []],
-                                ['color', []],
+                ['color', []],
 				['para', ['ul', 'ol', 'paragraph']],
 				['table', ['table']],
 				['insert', ['link', 'picture', 'video']],
@@ -38,9 +40,14 @@ class SummernoteHelper extends EditorialHelper {
 	];
 
 	public function initialize(array $config = array()) {
-		//$this->Html->script('jquery.js', ['block' => true]);
-		$this->css('Editorial/Summernote.summernote.css', ['block' => true]);
-		$this->script('Editorial/Summernote.summernote.js', ['block' => true]);
+
+        $style = '';
+        if($style = $this->config('style')){
+            $style = '-'.$style;
+        }
+        $this->css('Editorial/Summernote.summernote'.$style.'.css', ['block' => true]);
+        $this->script('Editorial/Summernote.summernote'.$style.'.js', ['block' => true]);
+
 		// Setup lang here
 		if($lang = $this->config('options.lang')){
 			$this->script('Editorial/Summernote.lang/summernote-'.$lang.'.js', ['block' => true]);
@@ -59,7 +66,7 @@ class SummernoteHelper extends EditorialHelper {
 			['block' => true]
 		);
 		$this->script('Editorial/Summernote.jquery-ui.min.js', ['block' => true]);
-		$this->css(['Editorial/Summernote.elfinder.min.css', 'Editorial/Summernote.theme.css'], ['block' => true]);
+		$this->css(['Editorial/Summernote.elfinder.min.css', 'Editorial/Summernote.theme-bootstrap-libreicons-svg.css'], ['block' => true]);
         $this->script([
 				'Editorial/Summernote.elfinder.min.js',
 				'Editorial/Summernote.plugin/elfinder/summernote-ext-elfinder.js',

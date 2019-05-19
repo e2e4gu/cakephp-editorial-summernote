@@ -32,6 +32,7 @@
           contents: '<i class="fa fa-image"/>',
           tooltip: 'Images browser',
           click: function () {
+              //TODO: Maybe elfinderDialog(context);
               elfinderDialog($(this).closest('.note-editor').parent().children('.editor'));
           }
         });
@@ -50,6 +51,5 @@
           this.$panel = null;
       };
     }
-
   });
 }));
