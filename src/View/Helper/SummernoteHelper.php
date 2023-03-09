@@ -39,17 +39,18 @@ class SummernoteHelper extends EditorialHelper {
 		]
 	];
 
-	public function initialize(array $config = array()) {
+	public function initialize(array $config = array()): void
+	{
 
         $style = '';
-        if($style = $this->config('style')){
+        if($style = $this->getConfig('style')){
             $style = '-'.$style;
         }
         $this->css('Editorial/Summernote.summernote'.$style.'.css', ['block' => true]);
         $this->script('Editorial/Summernote.summernote'.$style.'.js', ['block' => true]);
 
 		// Setup lang here
-		if($lang = $this->config('options.lang')){
+		if($lang = $this->getConfig('options.lang')){
 			$this->script('Editorial/Summernote.lang/summernote-'.$lang.'.js', ['block' => true]);
 		}
 		// TODO: code mirror support in summernote little buggy
@@ -87,7 +88,7 @@ class SummernoteHelper extends EditorialHelper {
 		$js = '';
 		if(preg_match_all($searchRegex, $content, $matches)){
 			$js .= "$(document).ready(function() {\n";
-			$editorOptions = json_encode($this->config('options'));
+			$editorOptions = json_encode($this->getConfig('options'));
 			foreach ($matches[0] as $input){
 				if(preg_match('/<textarea.*id\=\"(.*)\"[^>]*>.*<\/textarea>/isU', $input, $idMatches)) {
 					$js .= "\tjQuery('#".$idMatches[1]."').summernote(".$editorOptions.");\n";
@@ -102,12 +103,12 @@ class SummernoteHelper extends EditorialHelper {
 
 	protected function setCodemirrorAddon(){
 		$this->Html->css('Editorial/Codemirror.codemirror.css', ['block' => true]);
-		$codemirrorTheme = $this->config('options.codemirror.theme');
+		$codemirrorTheme = $this->getConfig('options.codemirror.theme');
 		if(!empty($codemirrorTheme)) {
 			$this->Html->css('Editorial/Codemirror.theme/'.$codemirrorTheme.'.css', ['block' => true]);
 		}
 		$this->Html->script('Editorial/Codemirror.codemirror.js', ['block' => true]);
-		$codemirrorMode = $this->config('options.codemirror.mode');
+		$codemirrorMode = $this->getConfig('options.codemirror.mode');
 		if(!empty($codemirrorMode)) {
 			$this->Html->script('Editorial/Codemirror.mode/'.$codemirrorMode.'/'.$codemirrorMode.'.js', ['block' => true]);
 		}
@@ -115,7 +116,7 @@ class SummernoteHelper extends EditorialHelper {
 	}
 
 	protected function replaceButton($target, $source){
-		$toolbar = $this->config('options.toolbar');
+		$toolbar = $this->getConfig('options.toolbar');
 		foreach($toolbar as $i=>$bar){
 			foreach($bar[1] as $j=>$button){
 				if($button == $source){
@@ -123,8 +124,8 @@ class SummernoteHelper extends EditorialHelper {
 				}
 			}
 		}
-		$this->config('options.toolbar', '');
-		$this->config('options.toolbar', $toolbar);
+		$this->setConfig('options.toolbar', '');
+		$this->setConfig('options.toolbar', $toolbar);
 	}
 
 }
