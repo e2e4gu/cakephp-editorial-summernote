@@ -12,7 +12,7 @@ class FilesystemController extends AppController {
 
     public function callback()
     {
-        if(Plugin::loaded('Passengers')){
+        if(Plugin::isLoaded('Passengers')){
             $session = $this->request->session();
             $user = $session->read('Auth.User');
             if(!isset($user['id'])){
@@ -23,7 +23,7 @@ class FilesystemController extends AppController {
         $opts = Configure::read('Summernote.elFinder');
         foreach($opts['roots'] as $key=>$root){
             if(isset($root['primary'])||($root['primary'] === true)){
-                if(Plugin::loaded('Passengers')&&($user['role_id'] != 4)){
+                if(Plugin::isLoaded('Passengers')&&($user['role_id'] != 4)){
                     $root['path'] .= DS.'users_content'.DS.'user_'.$user['id'];
                     $root['URL'] .= 'users_content/user_'.$user['id'].'/';
                 }

@@ -54,7 +54,7 @@ class SummernoteHelper extends EditorialHelper {
 			$this->script('Editorial/Summernote.lang/summernote-'.$lang.'.js', ['block' => true]);
 		}
 		// TODO: code mirror support in summernote little buggy
-		if(Plugin::loaded('Editorial/Codemirror')){
+		if(Plugin::isLoaded('Editorial/Codemirror')){
 			$this->setCodemirrorAddon();
 		}
 
